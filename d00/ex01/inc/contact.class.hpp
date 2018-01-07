@@ -6,14 +6,14 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:51:51 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/07 13:32:15 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/07 18:33:23 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_HPP
 # define CONTACT_CLASS_HPP
 
-#include <string>
+# include <string>
 
 class Contact
 {

@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 15:18:01 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/07 17:37:29 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/07 19:45:07 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ _nbWithdrawals(0)
 		<< ";created" << std::endl;
 	Account::_nbAccounts++;
 	Account::_totalAmount += initial_deposit;
+	return;
 }
 
 Account::~Account(void)
@@ -42,6 +43,7 @@ Account::~Account(void)
 		<< ";amount:" << this->_amount \
 		<< ";closed" << std::endl;
 	Account::_nbAccounts--;
+	return;
 }
 
 int	Account::getNbAccounts(void)
@@ -71,6 +73,7 @@ void Account::displayAccountsInfos(void)
 		<< ";total:" << Account::getTotalAmount() \
 		<< ";deposits:" << Account::getNbDeposits() \
 		<< ";withdrawals:" << Account::getNbWithdrawals() << std::endl;
+	return;
 }
 
 void Account::makeDeposit(int deposit)
@@ -85,6 +88,7 @@ void Account::makeDeposit(int deposit)
 		<< ";amount:" << (this->_amount + deposit) \
 		<< ";nb_deposits:" << this->_nbDeposits << std::endl;
 	this->_amount += deposit;
+	return;
 }
 
 bool Account::makeWithdrawal(int withdrawal)
@@ -124,6 +128,7 @@ void Account::displayStatus(void) const
 		<< ";amount:" << this->_amount \
 		<< ";deposits:" << this->_nbDeposits \
 		<< ";withdrawals:" << this->_nbWithdrawals << std::endl;
+	return;
 }
 
 void Account::_displayTimestamp(void)
@@ -138,4 +143,5 @@ void Account::_displayTimestamp(void)
 		<< std::setw(2) << now->tm_hour \
 		<< std::setw(2) << now->tm_min \
 		<< std::setw(2) << now->tm_sec << "] ";
+	return;
 }

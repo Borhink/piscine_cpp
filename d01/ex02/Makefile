@@ -6,7 +6,7 @@
 #    By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 17:15:56 by qhonore           #+#    #+#              #
-#    Updated: 2018/01/07 18:23:10 by qhonore          ###   ########.fr        #
+#    Updated: 2018/01/07 18:50:02 by qhonore          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = tests.cpp Account.class.cpp
+SRC_NAME = main.cpp Zombie.cpp ZombieEvent.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = accounts_info
+NAME = zombie
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))

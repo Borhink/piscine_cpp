@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:50:52 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/07 13:56:57 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/07 19:46:38 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ _favoriteMeal("Meal"),
 _underwearColor("Color"),
 _darkestSecret("Secret")
 {
+	return;
 }
 
 Contact::~Contact(void)
 {
+	return;
 }
 
 std::string const &Contact::getFirstName(void) const
@@ -40,6 +42,7 @@ void Contact::setFirstName(std::string const &firstName)
 {
 	if (!firstName.empty())
 		this->_firstName = firstName;
+	return;
 }
 
 std::string const &Contact::getLastName(void) const
@@ -51,6 +54,7 @@ void Contact::setLastName(std::string const &lastName)
 {
 	if (!lastName.empty())
 		this->_lastName = lastName;
+	return;
 }
 
 std::string const &Contact::getNickname(void) const
@@ -62,6 +66,7 @@ void Contact::setNickname(std::string const &nickname)
 {
 	if (!nickname.empty())
 		this->_nickname = nickname;
+	return;
 }
 
 std::string const &Contact::getLogin(void) const
@@ -73,6 +78,7 @@ void Contact::setLogin(std::string const &login)
 {
 	if (!login.empty())
 		this->_login = login;
+	return;
 }
 
 std::string const &Contact::getPostalAddress(void) const
@@ -84,6 +90,7 @@ void Contact::setPostalAddress(std::string const &postalAddress)
 {
 	if (!postalAddress.empty())
 		this->_postalAddress = postalAddress;
+	return;
 }
 
 std::string const &Contact::getEmailAddress(void) const
@@ -95,6 +102,7 @@ void Contact::setEmailAddress(std::string const &emailAddress)
 {
 	if (!emailAddress.empty())
 		this->_emailAddress = emailAddress;
+	return;
 }
 
 std::string const &Contact::getPhoneNumber(void) const
@@ -106,6 +114,7 @@ void Contact::setPhoneNumber(std::string const &phoneNumber)
 {
 	if (!phoneNumber.empty())
 		this->_phoneNumber = phoneNumber;
+	return;
 }
 
 std::string const &Contact::getBirthdayDate(void) const
@@ -117,6 +126,7 @@ void Contact::setBirthdayDate(std::string const &birthdayDate)
 {
 	if (!birthdayDate.empty())
 		this->_birthdayDate = birthdayDate;
+	return;
 }
 
 std::string const &Contact::getFavoriteMeal(void) const
@@ -128,6 +138,7 @@ void Contact::setFavoriteMeal(std::string const &favoriteMeal)
 {
 	if (!favoriteMeal.empty())
 		this->_favoriteMeal = favoriteMeal;
+	return;
 }
 
 std::string const &Contact::getUnderwearColor(void) const
@@ -139,6 +150,7 @@ void Contact::setUnderwearColor(std::string const &underwearColor)
 {
 	if (!underwearColor.empty())
 		this->_underwearColor = underwearColor;
+	return;
 }
 
 std::string const &Contact::getDarkestSecret(void) const
@@ -150,4 +162,5 @@ void Contact::setDarkestSecret(std::string const &darkestSecret)
 {
 	if (!darkestSecret.empty())
 		this->_darkestSecret = darkestSecret;
+	return;
 }

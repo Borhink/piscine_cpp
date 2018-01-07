@@ -6,17 +6,17 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:51:51 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/07 14:21:43 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/07 18:33:18 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_CLASS_HPP
 # define PHONEBOOK_CLASS_HPP
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include "contact.class.hpp"
+# include <iostream>
+# include <iomanip>
+# include <string>
+# include "contact.class.hpp"
 
 class PhoneBook
 {

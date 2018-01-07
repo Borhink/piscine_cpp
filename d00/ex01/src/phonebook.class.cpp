@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:50:52 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/07 15:01:27 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/07 19:45:51 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ PhoneBook::PhoneBook(void):
 _run(true),
 _nbContacts(0)
 {
+	return;
 }
 
 PhoneBook::~PhoneBook(void)
 {
+	return;
 }
 
 void PhoneBook::run(void)
@@ -39,6 +41,7 @@ void PhoneBook::run(void)
 			this->_run = false;
 		}
 	}
+	return;
 }
 
 std::string PhoneBook::getEntry(std::string entryName) const
@@ -81,6 +84,7 @@ void PhoneBook::addContact(void)
 		contact.setDarkestSecret(this->getEntry("Enter darkest secret: "));
 		this->_nbContacts++;
 	}
+	return;
 }
 
 void PhoneBook::searchContact(void) const
@@ -115,6 +119,7 @@ void PhoneBook::searchContact(void) const
 	}
 	else
 		std::cout << "No contact, use ADD command to add contact !" << std::endl;
+	return;
 }
 
 void PhoneBook::showContact(int index) const
@@ -132,4 +137,5 @@ void PhoneBook::showContact(int index) const
 	std::cout << "Favorite Meal: " << contact.getFavoriteMeal() << std::endl;
 	std::cout << "Underwear Color: " << contact.getUnderwearColor() << std::endl;
 	std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
+	return;
 }
