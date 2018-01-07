@@ -6,7 +6,7 @@
 #    By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 17:15:56 by qhonore           #+#    #+#              #
-#    Updated: 2018/01/07 16:04:23 by qhonore          ###   ########.fr        #
+#    Updated: 2018/01/07 17:38:30 by qhonore          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = main.cpp contact.class.cpp phonebook.class.cpp
+SRC_NAME = tests.cpp Account.class.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = phonebook
+NAME = accounts_info
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
