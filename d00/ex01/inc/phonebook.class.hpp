@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:51:51 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/05 18:53:31 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/07 14:21:43 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_CLASS_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include "contact.class.hpp"
 
@@ -21,6 +22,7 @@ class PhoneBook
 {
 
 public:
+
 	PhoneBook(void);
 	~PhoneBook(void);
 
@@ -28,8 +30,11 @@ public:
 
 private:
 
-	void checkEntry(void);
+	std::string getEntry(std::string entryName) const;
+	std::string truncateString(std::string str) const;
 	void addContact(void);
+	void searchContact(void) const;
+	void showContact(int index) const;
 
 	bool _run;
 	int _nbContacts;

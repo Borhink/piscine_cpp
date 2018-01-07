@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:50:52 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/05 19:21:29 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/07 13:56:57 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,14 @@ Contact::Contact(void):
 _firstName("First"),
 _lastName("Last"),
 _nickname("Nick"),
-_login("Login")
+_login("Login"),
+_postalAddress("Postal"),
+_emailAddress("Email"),
+_phoneNumber("Phone"),
+_birthdayDate("Birthday"),
+_favoriteMeal("Meal"),
+_underwearColor("Color"),
+_darkestSecret("Secret")
 {
 }
 
@@ -66,4 +73,81 @@ void Contact::setLogin(std::string const &login)
 {
 	if (!login.empty())
 		this->_login = login;
+}
+
+std::string const &Contact::getPostalAddress(void) const
+{
+	return (this->_postalAddress);
+}
+
+void Contact::setPostalAddress(std::string const &postalAddress)
+{
+	if (!postalAddress.empty())
+		this->_postalAddress = postalAddress;
+}
+
+std::string const &Contact::getEmailAddress(void) const
+{
+	return (this->_emailAddress);
+}
+
+void Contact::setEmailAddress(std::string const &emailAddress)
+{
+	if (!emailAddress.empty())
+		this->_emailAddress = emailAddress;
+}
+
+std::string const &Contact::getPhoneNumber(void) const
+{
+	return (this->_phoneNumber);
+}
+
+void Contact::setPhoneNumber(std::string const &phoneNumber)
+{
+	if (!phoneNumber.empty())
+		this->_phoneNumber = phoneNumber;
+}
+
+std::string const &Contact::getBirthdayDate(void) const
+{
+	return (this->_birthdayDate);
+}
+
+void Contact::setBirthdayDate(std::string const &birthdayDate)
+{
+	if (!birthdayDate.empty())
+		this->_birthdayDate = birthdayDate;
+}
+
+std::string const &Contact::getFavoriteMeal(void) const
+{
+	return (this->_favoriteMeal);
+}
+
+void Contact::setFavoriteMeal(std::string const &favoriteMeal)
+{
+	if (!favoriteMeal.empty())
+		this->_favoriteMeal = favoriteMeal;
+}
+
+std::string const &Contact::getUnderwearColor(void) const
+{
+	return (this->_underwearColor);
+}
+
+void Contact::setUnderwearColor(std::string const &underwearColor)
+{
+	if (!underwearColor.empty())
+		this->_underwearColor = underwearColor;
+}
+
+std::string const &Contact::getDarkestSecret(void) const
+{
+	return (this->_darkestSecret);
+}
+
+void Contact::setDarkestSecret(std::string const &darkestSecret)
+{
+	if (!darkestSecret.empty())
+		this->_darkestSecret = darkestSecret;
 }
