@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:30 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/08 12:51:17 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/08 12:50:46 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Brain.hpp"
 
-Zombie::Zombie(std::string type):
-_type(type)
+Brain::Brain(void)
 {
 	return;
 }
 
-Zombie::~Zombie(void)
+Brain::~Brain(void)
 {
 	return;
 }
 
-void Zombie::announce(void) const
+std::string Brain::identify(void) const
 {
-	std::cout << "<" << this->_name << " (" << this->_type << ")> Braiiiiiiinnnssss..." << std::endl;
-	return;
-}
+	std::ostringstream stream;
+	std::string string;
 
-void Zombie::setName(std::string name)
-{
-	if (!name.empty())
-		this->_name = name;
-	return;
-}
-
-void Zombie::setType(std::string type)
-{
-	if (!type.empty())
-		this->_type = type;
-	return;
+	stream << this;
+	string = stream.str();
+	return (string);
 }

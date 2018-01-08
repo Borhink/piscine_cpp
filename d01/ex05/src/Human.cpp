@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Human.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:30 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/08 12:51:17 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/08 12:42:02 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Human.hpp"
 
-Zombie::Zombie(std::string type):
-_type(type)
+Human::Human(void)
 {
 	return;
 }
 
-Zombie::~Zombie(void)
+Human::~Human(void)
 {
 	return;
 }
 
-void Zombie::announce(void) const
+std::string Human::identify(void) const
 {
-	std::cout << "<" << this->_name << " (" << this->_type << ")> Braiiiiiiinnnssss..." << std::endl;
-	return;
+	return (this->_brain.identify());
 }
 
-void Zombie::setName(std::string name)
+class Brain const &Human::getBrain(void) const
 {
-	if (!name.empty())
-		this->_name = name;
-	return;
-}
-
-void Zombie::setType(std::string type)
-{
-	if (!type.empty())
-		this->_type = type;
-	return;
+	return (this->_brain);
 }

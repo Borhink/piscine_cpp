@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:30 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/07 20:07:29 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/08 12:51:02 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ _type(type)
 
 Zombie::~Zombie(void)
 {
+	return;
 }
 
 void Zombie::announce(void) const
