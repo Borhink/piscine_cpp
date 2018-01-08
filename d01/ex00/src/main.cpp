@@ -6,10 +6,11 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:21:49 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/07 18:39:51 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/08 18:51:04 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Pony.hpp"
 
 void ponyOnTheHeap(void)

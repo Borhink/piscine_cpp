@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/07 18:21:49 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/08 18:52:53 by qhonore          ###   ########.fr       */
+/*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
+/*   Updated: 2018/01/08 19:51:45 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-int main()
+# include <iostream>
+
+class Fixed
 {
-	class Human bob("Bob");
-	class Human steve("Steve");
 
-	bob.action("0", steve.getName());
-	bob.action("1", steve.getName());
-	steve.action("2", bob.getName());
-	bob.action("2", steve.getName());
-	steve.action("gwgwg", bob.getName());
-	bob.action("-1", steve.getName());
-	steve.action("84654", bob.getName());
-	return (0);
-}
+public:
+
+	Fixed(void);
+	Fixed(int nb);
+	Fixed(class Fixed const & src);
+	~Fixed(void);
+
+	Fixed &operator=(class Fixed const &rhs);
+
+	int getRawBits(void) const;
+	void setRawBits(int const nb);
+
+private:
+
+	int _nb;
+	static int const _fractionalBits;
+};
+
+std::ostream &operator<<(std::ostream &o, class Fixed const &i);
+
+# endif

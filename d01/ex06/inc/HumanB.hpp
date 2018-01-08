@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/08 13:33:24 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/08 18:46:48 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HUMANB_HPP
 
 # include <iostream>
+# include <string>
 # include "Weapon.hpp"
 
 class HumanB

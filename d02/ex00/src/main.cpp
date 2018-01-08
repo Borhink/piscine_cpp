@@ -6,23 +6,24 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:21:49 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/08 18:52:53 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/08 19:47:15 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#include <iostream>
+#include "Fixed.class.hpp"
 
 int main()
 {
-	class Human bob("Bob");
-	class Human steve("Steve");
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
 
-	bob.action("0", steve.getName());
-	bob.action("1", steve.getName());
-	steve.action("2", bob.getName());
-	bob.action("2", steve.getName());
-	steve.action("gwgwg", bob.getName());
-	bob.action("-1", steve.getName());
-	steve.action("84654", bob.getName());
+	c = b;
+
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+
 	return (0);
 }
