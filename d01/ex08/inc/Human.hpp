@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/08 17:34:41 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/09 13:53:12 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ private:
 	void meleeAttack(std::string const & target);
 	void rangedAttack(std::string const & target);
 	void intimidatingShout(std::string const & target);
+	void atomicBeam(std::string const & target);
 
 	std::string _name;
-	static funcPtr const _functions[3];
+	static funcPtr const _functions[4];
+	static std::string const _functionsName[4];
 };
 
 # endif
