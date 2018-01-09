@@ -6,17 +6,18 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:21:49 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/09 17:44:14 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/09 18:26:35 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-	FragTrap clapTrap("ClapTrap");
-	FragTrap *clapTrap2 = new FragTrap(clapTrap);
+	ScavTrap clapTrap("ClapTrap");
+	ScavTrap *clapTrap2 = new ScavTrap(clapTrap);
 	FragTrap bill;
 
 	delete clapTrap2;
@@ -34,7 +35,7 @@ int main()
 	bill.killProcess("ClapTrap");
 	clapTrap.setEnergyPoints(0);
 
-	clapTrap.vaulthunter_dot_exe("Bill");
+	clapTrap.challengeNewcomer("Bill");
 	bill.vaulthunter_dot_exe("ClapTrap");
 
 	clapTrap.atomicBeam("Bill");

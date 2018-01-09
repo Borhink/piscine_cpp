@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:30 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/09 18:31:05 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/09 18:31:14 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ _rangedAttackDamage(20),
 _armorDamageReduction(5),
 _atomicBeamDamage(9999)
 {
-	std::cout << "(Default Constructor): Heeey, I'm alive ! Do you even know my name ?" << std::endl;
+	std::cout << "(FragTrap Default Constructor): Heeey, I'm alive ! You don't named me !" << std::endl;
 	return;
 }
 
@@ -42,27 +42,27 @@ _rangedAttackDamage(20),
 _armorDamageReduction(5),
 _atomicBeamDamage(9999)
 {
-	std::cout << "(String Constructor): Heeey, I'm alive ! Why you named me " << name << " ? It's ugly.." << std::endl;
+	std::cout << "(FragTrap String Constructor): Heeey, I'm alive ! My lovely name is " << name << " !" << std::endl;
 	return;
 }
 
 FragTrap::FragTrap(FragTrap const &src)
 {
 	*this = src;
-	std::cout << "(Copy Constructor): Hello " << src.getName() << " I'm " << this->_name \
-		<< " ... but... it's my name... Holy fuck, you are me !!!" << std::endl;
+	std::cout << "(FragTrap Copy Constructor): Hello " << src.getName() << " I'm " << this->_name \
+		<< " ... You are me or I am you ?" << std::endl;
 	return;
 }
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << "(Destructor): Nooo, don't kill me, pleaaase. I'm a dancing robot !" << std::endl;
+	std::cout << "(FragTrap Destructor): Nooo, don't kill me, pleaaase. I can make bubbles for you !" << std::endl;
 	return;
 }
 
 void FragTrap::rangedAttack(std::string const &target)
 {
-	std::cout << "(rangedAttack): FR4G-TP " << this->_name << " throw his cam on " \
+	std::cout << "(FragTrap rangedAttack): FR4G-TP " << this->_name << " throw his cam on " \
 		<< target << ", causing " << this->_rangedAttackDamage \
 		<< " damages ! " << this->_name << " is now blind." << std::endl;
 	return;
@@ -70,7 +70,7 @@ void FragTrap::rangedAttack(std::string const &target)
 
 void FragTrap::meleeAttack(std::string const &target)
 {
-	std::cout << "(meleeAttack): FR4G-TP " << this->_name << " punch " \
+	std::cout << "(FragTrap meleeAttack): FR4G-TP " << this->_name << " punch " \
 		<< target << " in the face, causing " \
 		<< this->_meleeAttackDamage << " damages. It's hurt !" << std::endl;
 	return;
@@ -78,7 +78,7 @@ void FragTrap::meleeAttack(std::string const &target)
 
 void FragTrap::atomicBeam(std::string const &target)
 {
-	std::cout << "(atomicBeam): FR4G-TP " << this->_name << " launch atomic beam on " \
+	std::cout << "(FragTrap atomicBeam): FR4G-TP " << this->_name << " launch atomic beam on " \
 		<< target << ", it's super effective. " << target << " take " \
 		<< this->_atomicBeamDamage << " damages, but " << this->_name \
 		<< " get hited too..." << std::endl;
@@ -87,14 +87,14 @@ void FragTrap::atomicBeam(std::string const &target)
 
 void FragTrap::fireBall(std::string const &target)
 {
-	std::cout << "(fireBall): FR4G-TP " << this->_name << " throw a burning paper on " \
+	std::cout << "(FragTrap fireBall): FR4G-TP " << this->_name << " throw a burning paper on " \
 		<< target << ". " << target << " didn't care..." << std::endl;
 	return;
 }
 
 void FragTrap::killProcess(std::string const &target)
 {
-	std::cout << "(killProcess): FR4G-TP " << this->_name << " kill all " \
+	std::cout << "(FragTrap killProcess): FR4G-TP " << this->_name << " kill all " \
 		<< target << "'s processes. " << target << " is stuned.." << std::endl;
 	return;
 }
@@ -105,7 +105,7 @@ void FragTrap::takeDamage(unsigned int amount)
 		amount = 0;
 	else
 		amount -= this->_armorDamageReduction;
-	std::cout << "(takeDamage): FR4G-TP " << this->_name << " take only " << amount \
+	std::cout << "(FragTrap takeDamage): FR4G-TP " << this->_name << " take only " << amount \
 		<< " damages, it's a badass robot with armor !";
 	this->setHitPoints(this->_hitPoints - amount);
 	std::cout << " (HP left: " << this->_hitPoints << ")" << std::endl;
@@ -114,7 +114,7 @@ void FragTrap::takeDamage(unsigned int amount)
 
 void FragTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "(beRepaired): FR4G-TP " << this->_name << " use a medikit, healing " << amount \
+	std::cout << "(FragTrap beRepaired): FR4G-TP " << this->_name << " use a medikit, healing " << amount \
 		<< " HP.";
 	this->setHitPoints(this->_hitPoints + amount);
 	std::cout << " (HP left: " << this->_hitPoints << ")" << std::endl;
@@ -130,7 +130,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const &target)
 		this->setEnergyPoints(this->_energyPoints - 25);
 	}
 	else
-		std::cout << "(vaulthunter_dot_exe): FR4G-TP " << this->_name << " have not enough energy" << std::endl;
+		std::cout << "(FragTrap vaulthunter_dot_exe): FR4G-TP " << this->_name << " have not enough energy" << std::endl;
 	return;
 }
 

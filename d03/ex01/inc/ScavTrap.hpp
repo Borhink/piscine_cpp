@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/09 17:49:39 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/09 18:20:48 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include <iostream>
 # include <string>
 
-class FragTrap
+class ScavTrap
 {
 
 public:
 
-	typedef void (FragTrap::*funcPtr)(std::string const &);
-
-	FragTrap(void);
-	FragTrap(std::string name);
-	FragTrap(FragTrap const &src);
-	~FragTrap(void);
+	ScavTrap(void);
+	ScavTrap(std::string name);
+	ScavTrap(ScavTrap const &src);
+	~ScavTrap(void);
 
 	void rangedAttack(std::string const &target);
 	void meleeAttack(std::string const &target);
@@ -35,9 +33,9 @@ public:
 	void killProcess(std::string const &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-	void vaulthunter_dot_exe(std::string const &target);
+	void challengeNewcomer(std::string const &target);
 
-	FragTrap &operator=(FragTrap const &rhs);
+	ScavTrap &operator=(ScavTrap const &rhs);
 
 	std::string const &getName(void) const;
 	void setName(std::string const &name);
@@ -72,7 +70,7 @@ private:
 	int _rangedAttackDamage;
 	int _armorDamageReduction;
 	int _atomicBeamDamage;
-	static funcPtr const _functions[5];
+	static std::string const _challenges[5];
 };
 
 # endif
