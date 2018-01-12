@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/11 17:48:02 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 13:33:11 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ public:
 	virtual void takeDamage(int amount);
 
 	std::string const &getType(void) const;
-	void setType(std::string const &name);
+	void setType(std::string const &type);
 	int getHP(void) const;
-	void setHP(int const apcost);
+	void setHP(int hp);
 
 protected:
 
