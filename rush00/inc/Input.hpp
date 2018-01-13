@@ -6,7 +6,7 @@
 /*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 20:16:48 by jaleman           #+#    #+#             */
-/*   Updated: 2018/01/13 16:02:30 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/13 20:08:39 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,24 +64,24 @@ enum Entry
 	ENTRYCOUNT      ///< Keep last -- the total number of inputs
 };
 
-// class Input
-// {
-//
-// public:
-//
-// 	Input(void);
-// 	Input(Input const &src);
-// 	virtual ~Input(void);
-//
-// 	virtual Input &operator=(Input const &rhs);
-//
-// 	void clearEntries(void);
-//
-// 	bool getEntry(int entry) const;
-// 	void setEntry(int entry, bool val);
-//
-// private:
-// 	bool _entries[EntryCount];
-// };
+class Input
+{
+
+public:
+
+	Input(void);
+	Input(Input const &src);
+	virtual ~Input(void);
+
+	virtual Input &operator=(Input const &rhs);
+
+	void clearEntries(void);
+
+	bool getEntry(int entry) const;
+	void setEntry(int entry, bool val);
+
+private:
+	bool _entries[ENTRYCOUNT];
+};
 
 #endif

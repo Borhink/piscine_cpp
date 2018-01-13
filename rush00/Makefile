@@ -6,7 +6,7 @@
 #    By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 17:15:56 by qhonore           #+#    #+#              #
-#    Updated: 2018/01/13 16:13:28 by qhonore          ###   ########.fr        #
+#    Updated: 2018/01/13 19:58:55 by qhonore          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = main.cpp Entity.cpp Player.cpp Enemy.cpp Projectile.cpp Game.cpp
+SRC_NAME = main.cpp Entity.cpp Player.cpp Enemy.cpp Projectile.cpp Game.cpp \
+			Map.cpp Moveable.cpp Input.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
 NAME = space_shooter
 

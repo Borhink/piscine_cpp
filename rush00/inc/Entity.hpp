@@ -6,7 +6,7 @@
 /*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 20:16:48 by jaleman           #+#    #+#             */
-/*   Updated: 2018/01/13 16:00:51 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/13 20:31:55 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ENTITY_HPP
 
 # include "Input.hpp"
+
+class Map;
 
 class Entity
 {
@@ -25,21 +27,21 @@ public:
 	public:
 
 		Point(void);
-		Point(int X, int Y);
+		Point(float X, float Y);
 
-		int x;
-		int y;
+		float x;
+		float y;
 	};
 
-	Entity(void);
-	Entity(int life, char name, int x, int y);
-	Entity(int life, char name, Point pos);
+	Entity(int life, char name, float x, float y, Map &map);
+	Entity(int life, char name, Point pos, Map &map);
+	Entity(Map &map);
 	Entity(Entity const &src);
 	virtual ~Entity(void);
 
 	virtual Entity &operator=(Entity const &rhs);
 
-	virtual void update(int input);
+	virtual void update(Input &input);
 
 	bool isAlive(void) const;
 	int getLife(void) const;
@@ -49,8 +51,11 @@ public:
 	Point getPos(void) const;
 	int getX(void) const;
 	int getY(void) const;
+	float getXF(void) const;
+	float getYF(void) const;
 	void setPos(Point pos);
-	void setPos(int x, int y);
+	void setPos(float x, float y);
+	Map &getMap(void) const;
 
 protected:
 
@@ -58,8 +63,11 @@ protected:
 	int _life;//Vie restante
 	char _name;//Nom d'affichage (le char pour ncurse)
 	Point _pos;//Position de l'entité
-	//Movement class; ???
-	//Colision class; ???
+	Map &_map;
+
+private:
+
+	Entity(void);
 };
 
 #endif
