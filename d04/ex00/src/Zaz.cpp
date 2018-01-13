@@ -1,65 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Zaz.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:30 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/12 17:17:53 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:26:40 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Zaz.hpp"
 
-AMateria::AMateria(void):
-_xp(0),
-_type("AMateria")
+Zaz::Zaz(void):
+Victim("Zaz")
 {
+	std::cout << "I love ponies, I'm a ponyyy !" << std::endl;
 	return;
 }
 
-AMateria::AMateria(std::string const &type):
-_xp(0),
-_type(type)
+Zaz::Zaz(std::string const &name):
+Victim(name)
 {
+	std::cout << "I love ponies, I'm a ponyyy !" << std::endl;
 	return;
 }
 
-AMateria::AMateria(AMateria const &src)
+Zaz::Zaz(Zaz const &src)
 {
 	*this = src;
+	std::cout << "I love ponies, I'm a ponyyy !" << std::endl;
 	return;
 }
 
-AMateria::~AMateria(void)
+Zaz::~Zaz(void)
 {
+	std::cout << "I want to live more, noooo..." << std::endl;
 	return;
 }
 
-AMateria &AMateria::operator=(AMateria const &rhs)
+Zaz &Zaz::operator=(Zaz const &rhs)
 {
 	if (this != &rhs)
 	{
-		this->_xp = rhs._xp;
-		this->_type = rhs._type;
+		this->_name = rhs._name;
 	}
 	return (*this);
 }
 
-void AMateria::use(ICharacter &target)
+void Zaz::getPolymorphed(void) const
 {
-	this->_xp += 10;
-	(void)target;
-	return;
-}
-
-unsigned int AMateria::getXP(void) const
-{
-	return (this->_xp);
-}
-
-std::string const &AMateria::getType(void) const
-{
-	return (this->_type);
+	std::cout << this->_name << " has been turned into a otter !" << std::endl;
 }

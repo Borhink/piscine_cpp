@@ -6,7 +6,7 @@
 #    By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 17:15:56 by qhonore           #+#    #+#              #
-#    Updated: 2018/01/12 13:48:52 by qhonore          ###   ########.fr        #
+#    Updated: 2018/01/12 17:01:32 by qhonore          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 INC = $(addprefix -I,$(INC_PATH))
 
-CC = g++
+CC = clang++
 CFLAGS = -Wall -Wextra -Werror -MMD
 
 all:

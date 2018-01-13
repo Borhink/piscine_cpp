@@ -1,65 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Pikachu.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:30 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/12 17:17:53 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:32:20 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Pikachu.hpp"
 
-AMateria::AMateria(void):
-_xp(0),
-_type("AMateria")
+Pikachu::Pikachu(void):
+Enemy(40, "Pikachu")
 {
+	std::cout << "Pika pikaa !" << std::endl;
 	return;
 }
 
-AMateria::AMateria(std::string const &type):
-_xp(0),
-_type(type)
-{
-	return;
-}
-
-AMateria::AMateria(AMateria const &src)
+Pikachu::Pikachu(Pikachu const &src)
 {
 	*this = src;
 	return;
 }
 
-AMateria::~AMateria(void)
+Pikachu::~Pikachu(void)
 {
+	std::cout << "Pikaaaaa ..." << std::endl;
 	return;
 }
 
-AMateria &AMateria::operator=(AMateria const &rhs)
+Pikachu &Pikachu::operator=(Pikachu const &rhs)
 {
 	if (this != &rhs)
 	{
-		this->_xp = rhs._xp;
 		this->_type = rhs._type;
+		this->_hp = rhs._hp;
 	}
 	return (*this);
 }
 
-void AMateria::use(ICharacter &target)
+void Pikachu::takeDamage(int amount)
 {
-	this->_xp += 10;
-	(void)target;
+	amount -= 15;
+	if (amount > 0)
+		this->setHP(this->_hp - amount);
 	return;
-}
-
-unsigned int AMateria::getXP(void) const
-{
-	return (this->_xp);
-}
-
-std::string const &AMateria::getType(void) const
-{
-	return (this->_type);
 }

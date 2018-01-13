@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Projectile.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 21:33:59 by jaleman           #+#    #+#             */
-/*   Updated: 2018/01/12 17:03:06 by qhonore          ###   ########.fr       */
+/*   Created: 2017/07/11 20:16:48 by jaleman           #+#    #+#             */
+/*   Updated: 2018/01/13 13:44:04 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef PROJECTILE_HPP
+# define PROJECTILE_HPP
 
-# include <string>
+# include "Entity.hpp"
 
-class ICharacter;
-
-class AMateria
+class Projectile : public Entity
 {
 
 public:
 
-	AMateria(void);
-	AMateria(std::string const &type);
-	AMateria(AMateria const &src);
-	~AMateria(void);
+	Projectile(void);
+	Projectile(int damage, int x, int y);
+	Projectile(Projectile const &src);
+	virtual ~Projectile(void);
 
-	AMateria &operator=(AMateria const &rhs);
+	virtual Projectile &operator=(Projectile const &rhs);
 
-	virtual AMateria *clone(void) const = 0;
-	virtual void use(ICharacter &target);
-
-	unsigned int getXP(void) const;
-	std::string const &getType(void) const;
+	int getDamage(void) const;
+	void setDamage(int damage);
 
 protected:
 
-	unsigned int _xp;
-	std::string _type;
+	int _damage;
 };
 
 #endif

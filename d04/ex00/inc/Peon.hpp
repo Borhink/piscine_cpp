@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/11 15:51:29 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:08:42 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 
 	Peon(std::string const &name);
 	Peon(Peon const &src);
-	~Peon(void);
+	virtual ~Peon(void);
 
 	Peon &operator=(Peon const &rhs);
 

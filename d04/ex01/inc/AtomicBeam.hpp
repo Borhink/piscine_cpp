@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
+/*   AtomicBeam.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/12 15:20:14 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 16:40:48 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLASMARIFLE_HPP
-# define PLASMARIFLE_HPP
+#ifndef ATOMICBEAM_HPP
+# define ATOMICBEAM_HPP
 
 # include <iostream>
 # include <string>
 # include "AWeapon.hpp"
 
-class PlasmaRifle : public AWeapon
+class AtomicBeam : public AWeapon
 {
 
 public:
 
-	PlasmaRifle(void);
-	PlasmaRifle(PlasmaRifle const &src);
-	virtual ~PlasmaRifle(void);
+	AtomicBeam(void);
+	AtomicBeam(AtomicBeam const &src);
+	virtual ~AtomicBeam(void);
 
-	PlasmaRifle &operator=(PlasmaRifle const &rhs);
+	AtomicBeam &operator=(AtomicBeam const &rhs);
 
 	virtual void attack(void) const;
 };

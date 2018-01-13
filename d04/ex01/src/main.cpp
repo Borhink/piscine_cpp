@@ -6,15 +6,17 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:21:49 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/11 20:04:41 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 16:44:00 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Character.hpp"
 #include "PlasmaRifle.hpp"
+#include "AtomicBeam.hpp"
 #include "PowerFist.hpp"
 #include "RadScorpion.hpp"
+#include "Pikachu.hpp"
 
 int main(void)
 {
@@ -24,9 +26,11 @@ int main(void)
 
 	Enemy* b = new RadScorpion();
 	Enemy* a = new RadScorpion();
+	Enemy* c = new Pikachu();
 
 	AWeapon* pr = new PlasmaRifle();
 	AWeapon* pf = new PowerFist();
+	AWeapon* ab = new AtomicBeam();
 
 	zaz->equip(pr);
 	std::cout << *zaz;
@@ -41,12 +45,26 @@ int main(void)
 	zaz->attack(b);
 	std::cout << *zaz;
 	b = NULL;
+
 	zaz->attack(b);
 	zaz->equip(pf);
+	zaz->attack(c);
+	std::cout << *zaz;
+	zaz->attack(c);
+	std::cout << *zaz;
+	c = NULL;
+
 	zaz->attack(a);
 	std::cout << *zaz;
-	zaz->attack(a);
+
+	zaz->recoverAP();
+	zaz->recoverAP();
+	zaz->recoverAP();
+	zaz->recoverAP();
+	zaz->recoverAP();
+	zaz->equip(ab);
 	std::cout << *zaz;
+
 	zaz->attack(a);
 	std::cout << *zaz;
 

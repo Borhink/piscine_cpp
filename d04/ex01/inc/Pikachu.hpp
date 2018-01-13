@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
+/*   Pikachu.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/12 15:20:14 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:30:28 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLASMARIFLE_HPP
-# define PLASMARIFLE_HPP
+#ifndef PIKACHU_HPP
+# define PIKACHU_HPP
 
 # include <iostream>
 # include <string>
-# include "AWeapon.hpp"
+# include "Enemy.hpp"
 
-class PlasmaRifle : public AWeapon
+class Pikachu : public Enemy
 {
 
 public:
 
-	PlasmaRifle(void);
-	PlasmaRifle(PlasmaRifle const &src);
-	virtual ~PlasmaRifle(void);
+	Pikachu(void);
+	Pikachu(Pikachu const &src);
+	virtual ~Pikachu(void);
 
-	PlasmaRifle &operator=(PlasmaRifle const &rhs);
+	Pikachu &operator=(Pikachu const &rhs);
 
-	virtual void attack(void) const;
+	virtual void takeDamage(int amount);
 };
 
 # endif

@@ -6,7 +6,7 @@
 #    By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 17:15:56 by qhonore           #+#    #+#              #
-#    Updated: 2018/01/12 16:42:33 by qhonore          ###   ########.fr        #
+#    Updated: 2018/01/13 16:13:28 by qhonore          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,9 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = main.cpp AWeapon.cpp PlasmaRifle.cpp PowerFist.cpp Enemy.cpp \
-			SuperMutant.cpp RadScorpion.cpp Character.cpp Pikachu.cpp AtomicBeam.cpp
+SRC_NAME = main.cpp Entity.cpp Player.cpp Enemy.cpp Projectile.cpp Game.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = aweapon
+NAME = space_shooter
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
@@ -25,13 +24,14 @@ INC = $(addprefix -I,$(INC_PATH))
 
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -MMD
+LIB = -lncurses
 
 all:
 	@echo "\033[36;44m Make $(NAME) \033[0m"
 	@make $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $(LIB) $^ -o $@
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 	@mkdir -p $(OBJ_PATH)

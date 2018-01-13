@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/11 17:27:55 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:20:07 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 
 	AWeapon(std::string const &name, int apcost, int damage);
 	AWeapon(AWeapon const &src);
-	~AWeapon(void);
+	virtual ~AWeapon(void);
 
 	AWeapon &operator=(AWeapon const &rhs);
 

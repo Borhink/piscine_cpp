@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
+/*   Zaz.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/12 15:20:14 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:24:21 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLASMARIFLE_HPP
-# define PLASMARIFLE_HPP
+#ifndef ZAZ_HPP
+# define ZAZ_HPP
 
 # include <iostream>
 # include <string>
-# include "AWeapon.hpp"
+# include "Victim.hpp"
 
-class PlasmaRifle : public AWeapon
+class Zaz : public Victim
 {
 
 public:
 
-	PlasmaRifle(void);
-	PlasmaRifle(PlasmaRifle const &src);
-	virtual ~PlasmaRifle(void);
+	Zaz(std::string const &name);
+	Zaz(Zaz const &src);
+	virtual ~Zaz(void);
 
-	PlasmaRifle &operator=(PlasmaRifle const &rhs);
+	Zaz &operator=(Zaz const &rhs);
 
-	virtual void attack(void) const;
+	virtual void getPolymorphed(void) const;
+
+private:
+	Zaz(void);
 };
 
 # endif

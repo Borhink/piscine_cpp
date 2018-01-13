@@ -5,26 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 21:31:34 by jaleman           #+#    #+#             */
-/*   Updated: 2018/01/12 15:34:37 by qhonore          ###   ########.fr       */
+/*   Created: 2017/07/11 20:16:44 by jaleman           #+#    #+#             */
+/*   Updated: 2018/01/13 13:07:21 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Enemy.hpp"
 
-Enemy::Enemy(void)
+Enemy::Enemy(void):
+Entity(1, 'E', 0, 0),
+_score(10)
 {
 	return;
 }
 
-Enemy::Enemy(int hp, std::string const &type):
-_type(type),
-_hp(hp)
+Enemy::Enemy(int life, int score, int x, int y):
+Entity(life, 'E', x, y),
+_score(score)
 {
 	return;
 }
 
-Enemy::Enemy(Enemy const &src)
+Enemy::Enemy(const Enemy &src)
 {
 	*this = src;
 	return;
@@ -39,39 +41,22 @@ Enemy &Enemy::operator=(Enemy const &rhs)
 {
 	if (this != &rhs)
 	{
-		this->_type = rhs._type;
-		this->_hp = rhs._hp;
+		this->_alive  = rhs._alive;
+		this->_life  = rhs._life;
+		this->_name  = rhs._name;
+		this->_pos  = rhs._pos;
+		this->_score  = rhs._score;
 	}
 	return (*this);
 }
 
-void Enemy::takeDamage(int amount)
+int Enemy::getScore(void) const
 {
-	if (amount > 0)
-		this->setHP(this->_hp - amount);
-	return;
+	return (this->_score);
 }
 
-std::string const &Enemy::getType(void) const
+void Enemy::setScore(int score)
 {
-	return (this->_type);
-}
-
-void Enemy::setType(std::string const &type)
-{
-	this->_type = type;
-	return;
-}
-
-int Enemy::getHP(void) const
-{
-	return (this->_hp);
-}
-
-void Enemy::setHP(int hp)
-{
-	this->_hp = hp;
-	if (this->_hp < 0)
-		this->_hp = 0;
+	this->_score = score;
 	return;
 }

@@ -1,65 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   AtomicBeam.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:30 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/12 17:17:53 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 16:42:39 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "AtomicBeam.hpp"
 
-AMateria::AMateria(void):
-_xp(0),
-_type("AMateria")
+AtomicBeam::AtomicBeam(void):
+AWeapon("Atomic Beam", 25, 999)
 {
 	return;
 }
 
-AMateria::AMateria(std::string const &type):
-_xp(0),
-_type(type)
-{
-	return;
-}
-
-AMateria::AMateria(AMateria const &src)
+AtomicBeam::AtomicBeam(AtomicBeam const &src)
 {
 	*this = src;
 	return;
 }
 
-AMateria::~AMateria(void)
+AtomicBeam::~AtomicBeam(void)
 {
 	return;
 }
 
-AMateria &AMateria::operator=(AMateria const &rhs)
+AtomicBeam &AtomicBeam::operator=(AtomicBeam const &rhs)
 {
 	if (this != &rhs)
 	{
-		this->_xp = rhs._xp;
-		this->_type = rhs._type;
+		this->_name = rhs._name;
+		this->_apcost = rhs._apcost;
+		this->_damage = rhs._damage;
 	}
 	return (*this);
 }
 
-void AMateria::use(ICharacter &target)
+void AtomicBeam::attack(void) const
 {
-	this->_xp += 10;
-	(void)target;
+	std::cout << "* bzzzZZZZ BZZZZIUUUUUUUU *" << std::endl;
 	return;
-}
-
-unsigned int AMateria::getXP(void) const
-{
-	return (this->_xp);
-}
-
-std::string const &AMateria::getType(void) const
-{
-	return (this->_type);
 }

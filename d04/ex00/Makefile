@@ -6,7 +6,7 @@
 #    By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 17:15:56 by qhonore           #+#    #+#              #
-#    Updated: 2018/01/11 15:26:32 by qhonore          ###   ########.fr        #
+#    Updated: 2018/01/12 16:42:31 by qhonore          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = main.cpp Sorcerer.cpp Victim.cpp Peon.cpp
+SRC_NAME = main.cpp Sorcerer.cpp Victim.cpp Peon.cpp Zaz.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
 NAME = sorcerer
 
@@ -22,7 +22,7 @@ SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 INC = $(addprefix -I,$(INC_PATH))
 
-CC = g++
+CC = clang++
 CFLAGS = -Wall -Wextra -Werror -MMD
 
 all:

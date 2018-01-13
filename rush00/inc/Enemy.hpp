@@ -3,42 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/12 15:15:40 by qhonore          ###   ########.fr       */
+/*   Created: 2017/07/11 20:16:48 by jaleman           #+#    #+#             */
+/*   Updated: 2018/01/13 12:53:48 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENEMY_HPP
 # define ENEMY_HPP
 
-# include <string>
+# include "Entity.hpp"
 
-class Enemy
+class Enemy : public Entity
 {
 
 public:
 
-	Enemy(int hp, std::string const &type);
+	Enemy(void);
+	Enemy(int life, int score, int x, int y);
 	Enemy(Enemy const &src);
 	virtual ~Enemy(void);
 
-	Enemy &operator=(Enemy const &rhs);
+	virtual Enemy &operator=(Enemy const &rhs);
 
-	virtual void takeDamage(int amount);
+	int getScore(void) const;
+	void setScore(int score);
 
-	std::string const &getType(void) const;
-	void setType(std::string const &type);
-	int getHP(void) const;
-	void setHP(int hp);
+private:
 
-protected:
-
-	Enemy(void);
-
-	std::string _type;
-	int _hp;
+	int _score;//Score que l'ennemi rapporte
 };
 
-# endif
+#endif

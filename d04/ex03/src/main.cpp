@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:21:49 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/12 14:04:39 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 17:18:40 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ int main()
 	ICharacter* bob = new Character("bob");
 
 	zaz->use(0, *bob);
+	zaz->use(1, *bob);
+
+	zaz->use(3, *bob);
+	zaz->use(2, *bob);
+
 	zaz->use(1, *bob);
 
 	delete bob;

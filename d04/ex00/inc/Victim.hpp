@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/11 16:12:43 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:08:47 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 
 	Victim(std::string const &name);
 	Victim(Victim const &src);
-	~Victim(void);
+	virtual ~Victim(void);
 
 	Victim &operator=(Victim const &rhs);
 

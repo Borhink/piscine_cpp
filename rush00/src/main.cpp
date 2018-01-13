@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/07 18:20:55 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/12 15:20:14 by qhonore          ###   ########.fr       */
+/*   Created: 2018/01/07 18:21:49 by qhonore           #+#    #+#             */
+/*   Updated: 2018/01/13 17:09:51 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLASMARIFLE_HPP
-# define PLASMARIFLE_HPP
+#include <string>
+#include <cstdlib>
 
-# include <iostream>
-# include <string>
-# include "AWeapon.hpp"
+#include <iostream>
+#include <ncurses.h>
+#include "Game.hpp"
 
-class PlasmaRifle : public AWeapon
+int main()
 {
+	Game game;
 
-public:
+	initscr();
+	curs_set(0);
+	noecho();
+	keypad(stdscr, TRUE);
+	nodelay(stdscr, TRUE);
 
-	PlasmaRifle(void);
-	PlasmaRifle(PlasmaRifle const &src);
-	virtual ~PlasmaRifle(void);
+	game.run();
 
-	PlasmaRifle &operator=(PlasmaRifle const &rhs);
-
-	virtual void attack(void) const;
-};
-
-# endif
+	curs_set(1);
+	endwin();
+	return (0);
+}
