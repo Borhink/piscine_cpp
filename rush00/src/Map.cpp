@@ -6,7 +6,7 @@
 /*   By: mmouhssi <mmouhssi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 20:15:51 by mmouhssi          #+#    #+#             */
-/*   Updated: 2018/01/13 20:38:09 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/14 20:08:08 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,27 @@ Map::Map(int H, int W)
     int i;
     int j;
 
-    if (H && W && _map == NULL)
+    if (H && W && _map == NULL && _background == NULL)
     {
-        Map::_map = new Entity **[H];
-
-        i = 0;
-        while (i < H)
+        if (_map == NULL)
         {
-            Map::_map[i] = new Entity*[W];
-            j = 0;
-            while (j < W)
+            Map::_map = new Entity **[H];
+            Map::_background = new int *[H];
+
+            i = 0;
+            while (i < H)
             {
-                Map::_map[i][j] = NULL;
-                j++;
+                Map::_map[i] = new Entity*[W];
+                Map::_background[i] = new int[W];
+                j = 0;
+                while (j < W)
+                {
+                    Map::_background[i][j] = 0;
+                    Map::_map[i][j] = NULL;
+                    j++;
+                }
+                i++;
             }
-            i++;
         }
         this->setH(H);
         this->setW(W);
@@ -49,6 +55,7 @@ Map::Map(Map const &src)
 
 Map::~Map()
 {
+	this->deleteMap();
 }
 
 Map&            Map::operator=(Map const &rhs)
@@ -66,52 +73,78 @@ void        Map::draw()
     WINDOW *win;
     int   w;
     int   h;
-    //int col;
-    //int row;
 
-    win = newwin(50, 200, 2, 0);
+    win = newwin(this->_H + 2, this->_W + 2, 4, 1);
     werase(win);
-    //box(win, 0 , 0); // bordure blanche autour zone
+    box(win, 0 , 0); // bordure blanche autour zone
     h = 0;
-    //printw("%d, %d \n" ,this->_H, this->_W);
     while (h < this->_H)
     {
         w = 0;
-        //printw("test \n");
         while (w < this->_W)
         {
-
+			if (this->_map[h][w] == NULL && Map::_background[h][w] == 1 && w > 0 && h > 0)
+            {
+                mvwprintw(win, h, w, ".");
+            }
             if (this->_map[h][w] != NULL)
             {
-
-                //wprintw(win, "hi \n");
-                //mvwprintw(win, h, w, ">");
-                this->_draw(&win, this->_map[h][w], h, w);
+				this->_draw(&win, this->_map[h][w], h, w);
             }
-            else{
-                //mvwprintw(win, h, w, " ");
-            }
-            //mvwprintw(win, h, w, "t");
             w++;
         }
         h++;
     }
     wrefresh(win);
     delwin(win);
-    //getmaxyx(stdscr,row,col);
-    //printw("%d, %d \n" ,row, col);
-    //wprintw(win, "%d, %d \n" ,row, col);
-    //mvwprintw(win, 24, 8, "test");
-    //mvwprintw(win, 9, 9, "test");
-    //mvwprintw(win, 10, 10, "test");
 
+}
+
+void        Map::update_background()
+{
+    int random = rand() % this->_H;
+    int h;
+    int w;
+
+    h = 0;
+    while (h < this->_H)
+    {
+        w = 0;
+        while (w < this->_W)
+        {
+            if (Map::_background[h][w])
+            {
+                if (this->pos_in_map(h, w - 1))
+                {
+                    Map::_background[h][w] = 0;
+                    Map::_background[h][w - 1] = 1;
+                }
+                else
+                {
+                    Map::_background[h][w] = 0;
+                }
+            }
+            w++;
+        }
+        h++;
+    }
+    Map::_background[random][this->_W - 1] = 1;
 }
 
 void       Map::_draw(WINDOW **win, Entity *entity, int h, int w)
 {
     // verifier les types joueurs ou enemy pour le dessins
-    mvwprintw(*win, h, w, ">");
-	(void)entity;
+	if (entity->getType() == PLAYER)
+		wattron(*win, COLOR_PAIR(2));
+	else if (entity->getType() == P_PROJECTILE)
+		wattron(*win, COLOR_PAIR(3));
+	else if (entity->getType() == ENEMY)
+		wattron(*win, COLOR_PAIR(4));
+	else if (entity->getType() == E_PROJECTILE)
+		wattron(*win, COLOR_PAIR(5));
+	char tab[2] = {entity->getName(), 0};
+    mvwprintw(*win, h + 1, w + 1, tab);
+	wattron(*win, COLOR_PAIR(1));
 }
 
 void        Map::_swap(Entity *entity, int h, int w)
@@ -149,45 +182,28 @@ void       Map::update()
         while (w < this->_W)
         {
             if (this->_map[h][w] != NULL)
-                this->_swap(this->_map[h][w], h, w);
+			{
+				this->_map[h][w]->update();
+			}
             w++;
         }
         h++;
     }
 }
 
-/*
-void        Map::clearMap()
-{
-    int i;
-    int j;
-
-    i = 0;
-    while (i < this->_H)
-    {
-        j = 0;
-        while (j < this->_W)
-        {
-            if (Map::_map[i][j])
-                delete Map::_map[i][j];
-            j++;
-        }
-        i++;
-    }
-}
-*/
-
 void        Map::deleteMap()
 {
-    int i;
+	int i;
 
     i = 0;
     while (i < this->_H)
     {
+        delete [] Map::_background[i];
         delete [] Map::_map[i];
         i++;
     }
 	delete [] Map::_map;
+    delete [] Map::_background;
 }
 
 int        Map::addEntity(Entity *entity, int h, int w)
@@ -215,21 +231,22 @@ int        Map::addEntity(Entity *entity, int h, int w, int b)
 void        Map::deleteEntity(int h, int w) // a tester
 {
     if (this->pos_in_map(h, w) && Map::_map[h][w])
+	{
         delete Map::_map[h][w];
+		Map::_map[h][w] = NULL;
+	}
 }
 
-// void		Map::moveEntity(Entity *entity, int newH, int newW)
-// {
-// 	int h = e->getY();
-// 	int w = e->getX();
-// 	//Si l'entite existe et que la nouvelle position est libre
-// 	if (this->_pos_in_map(h, w) && Map::_map[h][w]
-// 		&& this->_pos_in_map(newH, newW) && Map::_map[newH][newW])
-// 	{
-// 		Map::_map[newH][newW] = Map::_map[h][w]; // On copie le pointeur
-// 		Map::_map[h][w] = NULL; // Et on libere l'ancienne case
-// 	}
-// }
+void		Map::moveEntity(int h,int w, int newH, int newW)
+{
+ 	//Si l'entite existe et que la nouvelle position est libre
+ 	if (this->pos_in_map(h, w) && Map::_map[h][w]
+ 		&& this->pos_in_map(newH, newW) && !Map::_map[newH][newW])
+ 	{
+ 		Map::_map[newH][newW] = Map::_map[h][w];
+ 		Map::_map[h][w] = NULL;
+ 	}
+}
 
 Entity*     Map::getElem(int H, int W)
 {
@@ -270,4 +287,5 @@ bool            Map::pos_in_map(int h, int w)
     return (true);
 }
 
+int         **Map::_background = NULL;
 Entity      ***Map::_map = NULL;

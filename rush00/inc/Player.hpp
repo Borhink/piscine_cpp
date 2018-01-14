@@ -6,7 +6,7 @@
 /*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 20:16:48 by jaleman           #+#    #+#             */
-/*   Updated: 2018/01/13 19:57:51 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/14 18:57:50 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,21 @@ public:
 	virtual Player &operator=(Player const &rhs);
 
 	virtual void update(Input &input);
+	virtual void update(void);
 
 	int getScore(void) const;
 	void setScore(int score);
+	void addScore(int score);
 
 private:
 
 	Player(void);
+	void shoot(void);
 
 	int _score;//Score du joueur
+	float _fireRate;
+	float _shootDelay;
+	bool _shooting;
 };
 
 #endif

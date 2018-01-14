@@ -6,7 +6,7 @@
 /*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 20:16:48 by jaleman           #+#    #+#             */
-/*   Updated: 2018/01/13 19:20:41 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/14 18:19:37 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ public:
 
 	virtual Enemy &operator=(Enemy const &rhs);
 
+	virtual void update(void);
+
+	void shoot(void);
+
 	int getScore(void) const;
 	void setScore(int score);
 
@@ -35,6 +39,8 @@ private:
 	Enemy(void);
 
 	int _score;//Score que l'ennemi rapporte
+	float _fireRate;
+	float _shootDelay;
 };
 
 #endif

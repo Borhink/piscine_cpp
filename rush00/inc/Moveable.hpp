@@ -6,7 +6,7 @@
 /*   By: qhonore <qhonore@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 20:16:48 by qhonore           #+#    #+#             */
-/*   Updated: 2018/01/13 19:27:01 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/14 19:24:06 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ public:
 
 	Moveable &operator=(Moveable const &rhs);
 
-	void move(int dir, float &x, float &y, Map &map);
+	bool collide(Entity *e, int x, int y, Map &map);
+	bool canMove(Entity *e, int dir, Map &map);
+	void moveTarget(Entity *e, int dir, Map &map, bool isMap);
+	void move(Entity *e, int dir, Map &map);
 
 protected:
 

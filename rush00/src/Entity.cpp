@@ -6,40 +6,47 @@
 /*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 20:16:44 by jaleman           #+#    #+#             */
-/*   Updated: 2018/01/13 20:31:50 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/14 18:46:18 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Entity.hpp"
 #include "Map.hpp"
 
-Entity::Entity(int life, char name, float x, float y, Map &map):
-_alive(true), _life(life), _name(name), _pos(x, y), _map(map)
+int Entity::nbEntities = 0;
+
+Entity::Entity(int type, int life, char name, float x, float y, Map &map):
+_type(type), _alive(true), _life(life), _name(name), _pos(x, y), _map(map)
 {
+	Entity::nbEntities++;
 	return;
 }
 
-Entity::Entity(int life, char name, Point pos, Map &map):
-_alive(true), _life(life), _name(name), _pos(pos), _map(map)
+Entity::Entity(int type, int life, char name, Point pos, Map &map):
+_type(type), _alive(true), _life(life), _name(name), _pos(pos), _map(map)
 {
+	Entity::nbEntities++;
 	return;
 }
 
 Entity::Entity(Map &map):
-_alive(true), _life(1), _name('.'), _pos(0, 0), _map(map)
+_type(ENTITY), _alive(true), _life(1), _name('.'), _pos(0, 0), _map(map)
 {
+	Entity::nbEntities++;
 	return;
 }
 
 Entity::Entity(const Entity &src):
 _map(src.getMap())
 {
+	Entity::nbEntities++;
 	*this = src;
 	return;
 }
 
 Entity::~Entity(void)
 {
+	Entity::nbEntities--;
 	return;
 }
 
@@ -47,18 +54,37 @@ Entity &Entity::operator=(Entity const &rhs)
 {
 	if (this != &rhs)
 	{
-		this->_alive  = rhs._alive;
-		this->_life  = rhs._life;
-		this->_name  = rhs._name;
-		this->_pos  = rhs._pos;
-		this->_map  = rhs._map;
+		this->_alive = rhs._alive;
+		this->_life = rhs._life;
+		this->_name = rhs._name;
+		this->_pos = rhs._pos;
+		this->_map = rhs._map;
 	}
 	return (*this);
 }
 
-void Entity::update(Input &input)
+void Entity::update(void)
 {
-	(void)input;
+	return;
+}
+
+bool Entity::takeDamage(int damage)
+{
+	if (damage > 0)
+		this->setLife(this->_life - damage);
+	if (this->isAlive())
+		return (false);//EN VIE
+	return (true);//MORT
+}
+
+int Entity::getType(void) const
+{
+	return (this->_type);
+}
+
+void Entity::setType(int type)
+{
+	this->_type = type;
 	return;
 }
 
@@ -75,7 +101,7 @@ int Entity::getLife(void) const
 void Entity::setLife(int life)
 {
 	this->_life = life;
-	if (this->_life < 0)
+	if (this->_life <= 0)
 		this->_alive = false;
 	return;
 }
@@ -127,6 +153,26 @@ void Entity::setPos(float x, float y)
 	this->_pos.x = x;
 	this->_pos.y = y;
 	return;
+}
+
+void Entity::setX(float x)
+{
+	this->_pos.x = x;
+}
+
+void Entity::setY(float y)
+{
+	this->_pos.y = y;
+}
+
+void Entity::moveX(float x)
+{
+	this->_pos.x += x;
+}
+
+void Entity::moveY(float y)
+{
+	this->_pos.y += y;
 }
 
 Map &Entity::getMap(void) const

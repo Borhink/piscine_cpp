@@ -6,14 +6,29 @@
 /*   By: jaleman <jaleman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 20:16:48 by jaleman           #+#    #+#             */
-/*   Updated: 2018/01/13 20:31:55 by qhonore          ###   ########.fr       */
+/*   Updated: 2018/01/14 18:52:39 by qhonore          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENTITY_HPP
 # define ENTITY_HPP
 
+# include <string>
 # include "Input.hpp"
+
+enum EntityType
+{
+	ENTITY = 0,
+	PLAYER,
+	ENEMY,
+	PROJECTILE,
+	E_PROJECTILE,
+	P_PROJECTILE,
+
+	NB_ENTITY_TYPE
+};
+
+# define PATTERN_SIZE 3
 
 class Map;
 
@@ -33,16 +48,19 @@ public:
 		float y;
 	};
 
-	Entity(int life, char name, float x, float y, Map &map);
-	Entity(int life, char name, Point pos, Map &map);
+	Entity(int type, int life, char name, float x, float y, Map &map);
+	Entity(int type, int life, char name, Point pos, Map &map);
 	Entity(Map &map);
 	Entity(Entity const &src);
 	virtual ~Entity(void);
 
 	virtual Entity &operator=(Entity const &rhs);
 
-	virtual void update(Input &input);
+	virtual void update(void);
 
+	bool takeDamage(int damage);
+	int getType(void) const;
+	void setType(int type);
 	bool isAlive(void) const;
 	int getLife(void) const;
 	void setLife(int life);
@@ -55,10 +73,17 @@ public:
 	float getYF(void) const;
 	void setPos(Point pos);
 	void setPos(float x, float y);
+	void setX(float x);
+	void setY(float y);
+	void moveX(float x);
+	void moveY(float y);
 	Map &getMap(void) const;
+
+	static int nbEntities;
 
 protected:
 
+	int _type;//Nom d'affichage (le char pour ncurse)
 	bool _alive;//En vie ou pas (si non, DELETE)
 	int _life;//Vie restante
 	char _name;//Nom d'affichage (le char pour ncurse)
